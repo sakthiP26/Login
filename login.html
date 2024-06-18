@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="login.css">
+    <title>Login Form</title>
+</head>
+<body>
+    <div class="loader">
+        <span class="spinner"></span>
+      </div>  
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required><br><br>
+            </div>
+            <button type="submit" id="logbtn">Login</button>
+        </form>
+    </div>
+    <script>
+        window.addEventListener("load", function () {
+  this.setTimeout(function () {
+    var pageload = document.querySelector(".loader");
+    pageload.style.display = "none";
+  }, 1000);
+});
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+                     let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            
+            if (username.trim() === '' || password.trim() === '') {
+                alert('Please enter both username and password.');
+                return;
+            }
+
+                       window.location.href = 'home.html';
+        });
+
+
+
+    </script>
+</body>
+</html>

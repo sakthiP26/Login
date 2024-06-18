@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px; 
+         background-color: #f0f0f0; 
+         }
+    
+    .profile-icon {
+        width: 30px; 
+        height: 30px; 
+        border-radius: 50%; 
+        margin-left: 70rem; 
+    }
+    
+    .username {
+        margin-right: 50;     }
+    
+    #logout {
+        text-decoration: none;        color: #333; 
+    }
+    </style>
+    
+    
+</head>
+<body>
+    <div class="navbar">
+        <img src="profile.png" alt="Profile " class="profile-icon">
+        <span class="username"></span>
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <script>
+            
+            document.addEventListener("DOMContentLoaded", function() {
+   
+    function setUsername(username) {
+        var usernameElement = document.querySelector('.username');
+        usernameElement.textContent = username;
+    }
+
+    
+    var loggedInUsername = "sakthi"; 
+    setUsername(loggedInUsername); 
+    
+    var logoutLink = document.getElementById('logout');
+    logoutLink.addEventListener('click', function(event) {
+        event.preventDefault(); 
+
+        
+        alert('Logged out successfully!');
+        window.location.href = 'index.html'; 
+    });
+
+       function updateUsernameAfterLogin(newUsername) {
+        setUsername(newUsername);
+    }
+
+    
+    setTimeout(function() {
+        var newLoggedInUsername = "raja"; 
+        updateUsernameAfterLogin(newLoggedInUsername);
+    }, 3000);
+});
+
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reg.css">
+    <title>Register Form</title>
+</head>
+<body>
+    
+    <div class="loader">
+        <span class="spinner"></span>
+      </div>
+   
+    <div class="reg-container">
+        <h2>Register Form</h2>
+        <form id="registerform">
+            <div class="input-box">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            </div>
+            <div class="input-box">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            </div>
+            <div class="input-box">
+            <label for="qualification">Qualification:</label>
+            <input list="degrees" id="qual" name="qualification" required>
+            <datalist id="degrees">
+                <option value="B.E CSE">
+                <option value="MCA">
+                <option value="B.Tech IT">
+                <option value="MBA">
+                <option value="M.COM">
+            </datalist>
+            </div>
+        
+            <div class="input-box">   
+            <label for="mobile ">Mobile No:</label>
+            <input type="tel" id="num" required>
+            </div>
+            <div class="input-box">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            </div>
+            <button type="submit" id="regbtn">Submit</button>
+        </form>
+    </div>
+    <script>
+        window.addEventListener("load", function () {
+  this.setTimeout(function () {
+    var pageload = document.querySelector(".loader");
+    pageload.style.display = "none";
+  }, 1000);
+});
+        document.getElementById('registerform').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var qualification = document.getElementById('qual').value;
+            var mobile  = document.getElementById('num').value;
+            var password = document.getElementById('password').value;
+            
+            if (username && email && qualification && mobile && password) {
+                var registerData = {
+                username: username,
+                email: email,
+                qualification: qual,
+                mobile : num ,
+                password: password
+            };
+
+            localStorage.setItem('registerData', JSON.stringify(registerData));
+            window.location.href = 'login.html';
+        }
+ 
+         else {
+           
+            alert('Please fill in all required fields.');
+         }
+     });
+
+
+    </script>
+
+
+</body>
+</html>
